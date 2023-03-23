@@ -41,9 +41,9 @@ public class Base {
 	}
 	
 	//Method to get text from element
-	public String getText (WebElement element) 
+	public String getText (WebElement locator) 
 	{
-		return element.getText();
+		return locator.getText();
 	}
 	
 	//Method to get text from one locator
@@ -91,6 +91,12 @@ public class Base {
 		}
 	}
 	
+	
+	//Method to getAttribute
+	public String getAttribute (By locator)
+	{
+		return getAttribute(locator);
+	}
 	
 	//Method to validate if element is enable
 	public Boolean isEnable(By locator) 

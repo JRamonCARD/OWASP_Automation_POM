@@ -22,7 +22,9 @@ public class ProductAdd extends Base{
 		By yourBasketButtonLocator = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-navbar/mat-toolbar/mat-toolbar-row/button[4]");
 		By yourBasketContainerLocator = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-basket/mat-card/app-purchase-basket");
 		By productnameInsideContainerLocator = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-basket/mat-card/app-purchase-basket/mat-table/mat-row/mat-cell[2]");
+		By redGlobeCounterLocator = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-navbar/mat-toolbar/mat-toolbar-row/button[4]/span[1]/span[2]");
 		
+	
 		
 		String email = "li.ramoncr@gmail.com";
 		String password = "Password123";
@@ -132,32 +134,58 @@ public class ProductAdd extends Base{
 			}
 		}
 		Thread.sleep(1000);
-										/*
+										/*-----------------------------------------
 										//Select one random product
 										selectRandomProduct(productRandomNameLocator);
 										
 										//Get text and print from random product
 										getText(productRandomNameLocator);
 										System.out.println(productRandomNameLocator);
-										*/
+										---------------------------------------------*/
 										
-		//Fond First Product and click because I was not able to select random product
-		if (isDisplayed(firstProductLocator))
-		{
-			click(firstProductLocator);
-		}
-		else
-		{
-			System.out.println("Add to Basket button is not displayed");
-		}
 		
+		//Find First Product and click because I was not able to select random product
+		if (isDisplayed(firstProductLocator))
+			{
+				click(firstProductLocator);
+			}
+		else
+			{	
+				System.out.println("First Product not displayed");//Here I have an error still displaying this message even when it found the product
+			}
+							
 		//Get text name from he product selected and print from the product selected
 		String product = getText(nameFirstProductLocator);
 		System.out.println(product);
 		
 		
+		//Validate Red Globe is displayed and print value of the counter
+		if (isDisplayed(redGlobeCounterLocator))
+			{
+				System.out.println("Red glode counter is displayed");
+			
+				String counter = getText(redGlobeCounterLocator);
+				int counterNumber = Integer.parseInt(counter);
+			
+				if (counterNumber > 0) 
+					{
+						System.out.println("Counter is working the value inside is: " + counterNumber);
+					}
+				else
+					{
+						System.out.println("Counter is not working");
+					}
+		
+			}
+		else
+			{
+				System.out.println("Red globe counter is not displayed");
+			}
+		
+		
+				
 		//Click on Your Basket button
-		if (isDisplayed(yourBasketButtonLocator))
+		if (isEnable(redGlobeCounterLocator))
 		{
 			click(yourBasketButtonLocator);
 		}
@@ -182,6 +210,7 @@ public class ProductAdd extends Base{
 		
 	}
 	
+	
 	//Validate if name of product selected is equal inside Your Basket Page
 	public String nameIsCorrect() 
 	{
@@ -198,5 +227,6 @@ public class ProductAdd extends Base{
 		}
 	
 	}
+	
 
 }

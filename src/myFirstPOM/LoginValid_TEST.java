@@ -30,7 +30,7 @@ public class LoginValid_TEST {
 		loginValid.validLogin();
 		
 		//Validating if the email displayed is my email
-		assertEquals("li_jramoncr@outlook.com", loginValid.loginSuccessfully());
+		assertEquals("li.ramoncr@gmail.com", loginValid.loginSuccessfully());
 		
 	}
 	

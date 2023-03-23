@@ -33,9 +33,7 @@ public class LoginFailed_TEST {
 		assertEquals("Invalid email or password.", loginFailed.warningMessage());
 	}
 	
-	
-	
-	
+		
 
 	@After
 	public void tearDown() throws Exception {

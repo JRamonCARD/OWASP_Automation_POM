@@ -120,6 +120,11 @@ public class LoginFailed extends Base {
 		return getText(errorMessage);
 		
 	}
+
+	public static void main(String[] args) {
+		//main methof
+		
+	}
 }
 			
 	
