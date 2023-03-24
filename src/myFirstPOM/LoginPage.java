@@ -96,7 +96,7 @@ public class LoginPage extends Base {
 			System.out.println("Login button not displayed");
 		}
 		
-		//Verify Login box container is displayedl enter credentials and validate warning message
+		//Verify Login box container is displayed enter credentials and validate warning message
 		if (isDisplayed(loginContainerLocator)) {
 			System.out.println("Login container was displayed");
 			

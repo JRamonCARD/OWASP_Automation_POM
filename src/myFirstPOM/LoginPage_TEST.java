@@ -9,11 +9,6 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage_TEST {
 	
 	private WebDriver driver;
-	/*LoginPage loginFailed;
-	LoginPage loginValid;
-	LoginPage loginNullValues;
-	LoginPage loginLogout;*/
-	
 	LoginPage loginPageTest;
 	
 

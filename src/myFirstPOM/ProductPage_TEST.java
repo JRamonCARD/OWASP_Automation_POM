@@ -10,34 +10,53 @@ import org.openqa.selenium.WebDriver;
 public class ProductPage_TEST {
 	
 	private WebDriver driver;
-	ProductPage addProduct;
+	ProductPage addProductTest;
+	
 	
 
 	@Before
 	public void setUp() throws Exception 
 	{
-		addProduct = new ProductPage(driver);
-		driver = addProduct.firefoxDriverConnection();
-		addProduct.visit("https://juice-shop.herokuapp.com");
+		addProductTest = new ProductPage(driver);
+		driver = addProductTest.firefoxDriverConnection();
+		addProductTest.visit("https://juice-shop.herokuapp.com");
 		driver.manage().window().maximize();
 	}
 	
-	@Test
-	public void test() throws InterruptedException 
+	/*@Test
+	public void Test1_AddProduct() throws InterruptedException 
 	{
 		
 		//Calling method to add product
-		addProduct.addingProduct();
+		addProductTest.addingProduct();
 		
 		//Validating the name of the product inside Your Basket Container
-		assertEquals("Apple Juice (1000ml)", addProduct.nameIsCorrect());
+		assertEquals("Apple Juice (1000ml)", addProductTest.nameIsCorrect());
 		
+	}*/
+	
+	/*@Test
+	public void Test2_DeleteProduct () throws InterruptedException {
+		
+		//Calling method delete product
+		addProductTest.deleteProduct();
+		
+	}*/
+	
+	@Test
+	public void Test3_CompleteOrder() throws InterruptedException
+	{
+		//Calling method complete order
+		addProductTest.completeOrder();
 	}
+	
+	
+	
 
 	@After
 	public void tearDown() throws Exception 
 	{
-		driver.quit();
+		//driver.quit();
 	}
 
 	
