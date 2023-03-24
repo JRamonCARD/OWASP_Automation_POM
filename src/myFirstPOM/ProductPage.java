@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ProductAdd extends Base{
+public class ProductPage extends Base{
 	
 	//LOCATORS
 		By welcomeWindowLocator = By.xpath("//*[@id=\"mat-dialog-0\"]");
@@ -33,7 +33,7 @@ public class ProductAdd extends Base{
 				
 				
 				
-	public ProductAdd(WebDriver driver) 
+	public ProductPage(WebDriver driver) 
 	{
 		super(driver);
 		

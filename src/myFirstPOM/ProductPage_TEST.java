@@ -7,16 +7,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class ProductAdd_TEST {
+public class ProductPage_TEST {
 	
 	private WebDriver driver;
-	ProductAdd addProduct;
+	ProductPage addProduct;
 	
 
 	@Before
 	public void setUp() throws Exception 
 	{
-		addProduct = new ProductAdd(driver);
+		addProduct = new ProductPage(driver);
 		driver = addProduct.firefoxDriverConnection();
 		addProduct.visit("https://juice-shop.herokuapp.com");
 		driver.manage().window().maximize();
