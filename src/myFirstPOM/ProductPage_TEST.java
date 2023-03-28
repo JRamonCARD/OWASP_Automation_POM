@@ -23,7 +23,7 @@ public class ProductPage_TEST {
 		driver.manage().window().maximize();
 	}
 	
-	/*@Test
+	@Test
 	public void Test1_AddProduct() throws InterruptedException 
 	{
 		
@@ -33,21 +33,36 @@ public class ProductPage_TEST {
 		//Validating the name of the product inside Your Basket Container
 		assertEquals("Apple Juice (1000ml)", addProductTest.nameIsCorrect());
 		
-	}*/
+	}
 	
-	/*@Test
-	public void Test2_DeleteProduct () throws InterruptedException {
+	@Test
+	public void Test2_DeleteProduct() throws InterruptedException {
 		
 		//Calling method delete product
 		addProductTest.deleteProduct();
 		
-	}*/
+	}
 	
+
 	@Test
-	public void Test3_CompleteOrder() throws InterruptedException
+	public void Test3_CompleteOrderFirstTime() throws InterruptedException
 	{
 		//Calling method complete order
-		addProductTest.completeOrder();
+		addProductTest.completeOrderFirstTime();
+		
+		//Calling method to validate order completed message
+		assertEquals("Thank you for your purchase!", addProductTest.thankPurchaseMessage());
+	}
+	
+	@Test
+	public void Test4_CompleteOrderInfoSaved() throws InterruptedException
+	{
+		//Calling method to complete order with information address & payment saved
+		addProductTest.completeOrderInfoSaved();
+		
+		
+		//Calling method to validate order completed message
+		assertEquals("Thank you for your purchase!", addProductTest.thankPurchaseMessageSecond());
 	}
 	
 	
@@ -56,7 +71,7 @@ public class ProductPage_TEST {
 	@After
 	public void tearDown() throws Exception 
 	{
-		//driver.quit();
+		driver.close();
 	}
 
 	

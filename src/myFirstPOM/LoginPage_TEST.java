@@ -70,7 +70,7 @@ public class LoginPage_TEST {
 
 	@After
 	public void tearDown() throws Exception {
-		driver.quit();
+		driver.close();
 	}
 
 	
