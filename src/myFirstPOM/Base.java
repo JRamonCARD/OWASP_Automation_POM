@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 public class Base {
 	
@@ -40,6 +43,7 @@ public class Base {
 		return driver.findElements(locator);
 	}
 	
+
 	//Method to get text from element
 	public String getText (WebElement locator) 
 	{
@@ -77,6 +81,17 @@ public class Base {
 	}*/
 	
 	
+	
+	//Method to do mouseover an element
+	public void MoveToElement(By locator)
+	{
+	   
+	    Actions action = new Actions(driver);
+	    action.moveToElement(findElement(locator));
+	    action.build().perform();
+	  
+	}
+	
 	//Method to validate if element is displayed
 	public Boolean isDisplayed(By locator) 
 	{
@@ -111,7 +126,7 @@ public class Base {
 			return false;
 		}
 	}
-		
+
 		
 	//Method get the URL and open the page
 	public void visit(String url) 
@@ -119,6 +134,7 @@ public class Base {
 		driver.get(url);
 	}
 	
+
 	
 	//Method to close browser
 	public void closeBrowser (By locator) 
