@@ -32,7 +32,7 @@ public class AccoutPage_TEST {
 		assertEquals("User Profile", accountPageTest.userProfileSuccess());
 
 	}
-	*/
+	
 	
 	
 	@Test
@@ -46,6 +46,39 @@ public class AccoutPage_TEST {
 	}
 	
 	
+	@Test
+	public void Test3_Account_Recycle() throws InterruptedException
+	{
+		//Calling method openRecycle
+		accountPageTest.openRecycle();
+		
+		//Validate if title of Recycle section is correct
+		assertEquals("Request Recycling Box", accountPageTest.requestRecyclingLabel());
+		
+	}
+	
+	
+	@Test
+	public void Test4_Account_NewAddress() throws InterruptedException
+	{
+		//Calling method to add new address
+		accountPageTest.addingAddress();
+		
+		//Validate if address label has correct address
+		accountPageTest.myAddressConfirmation();
+		assertEquals("California, Hills, California, 90210", accountPageTest.myAddressConfirmation());
+		
+	}
+	*/
+	
+	
+	@Test
+	public void Test5_Account_NewPayment() throws InterruptedException
+	{
+		//Calling method to add credit card
+		accountPageTest.addingPaymentOption();
+		
+	}
 	
 	@After
 	public void tearDown() throws Exception 

@@ -637,7 +637,7 @@ public class ProductPage extends Base{
 		{
 			System.out.println("Add New Address button was enable");
 			click(addNewAddressButton);
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			
 			click(countryTextBox);
 			type(country, countryTextboxIn);
