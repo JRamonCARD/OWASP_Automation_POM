@@ -78,13 +78,17 @@ public class AccoutPage_TEST {
 		//Calling method to add credit card
 		accountPageTest.addingPaymentOption();
 		
+		//Validate if credit card added is the correct one
+		accountPageTest.confirmCreditCard();
+		assertEquals("Test", accountPageTest.confirmCreditCard());
 	}
 	
-	@After
+	/*@After
 	public void tearDown() throws Exception 
 	{
 		driver.close();
 	}
+	*/
 
 
 }

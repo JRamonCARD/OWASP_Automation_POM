@@ -69,6 +69,23 @@ public class AccountPage extends Base {
 	By myAddressSavedTag = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-saved-address/div/app-address/mat-card/mat-table/mat-row[1]/mat-cell[2]");
 	
 	
+	//Payment locators
+	By nameCreditCarOut = By.xpath("//*[@id=\"cdk-accordion-child-0\"]/div/div/mat-form-field[1]/div/div[1]/div[3]");
+	By nameCreditCardIn = By.xpath("//*[@id=\"mat-input-3\"]");
+	
+	By creditCardNumberOut = By.xpath("//*[@id=\"cdk-accordion-child-0\"]/div/div/mat-form-field[2]/div/div[1]/div[3]");
+	By creditCardNumberIn = By.xpath("//*[@id=\"mat-input-4\"]");
+	
+	By expiryMonthDropDown = By.xpath("//*[@id=\"cdk-accordion-child-0\"]/div/div/mat-form-field[3]/div/div[1]/div[3]");
+	By monthOption12DropDown = By.xpath("//*[@id=\"mat-input-5\"]/option[12]");
+	
+	By expiryYearDropDown = By.xpath("//*[@id=\"mat-input-6\"]");
+	By expiryYearOptionDropDown = By.xpath("//*[@id=\"mat-input-6\"]/option[9]");
+	By submitPaymentInfoButton = By.xpath("//*[@id=\"submitButton\"]");
+	
+	By myCreditCardTag = By.xpath("//*[@class=\"mat-cell cdk-cell cdk-column-Name mat-column-Name ng-star-inserted\"]");
+	
+	
 	//Data
 	String email = "li.ramoncr@gmail.com";
 	String password = "Password123";
@@ -602,7 +619,7 @@ public class AccountPage extends Base {
 		type(state, stateTextboxIn);
 		Thread.sleep(500);
 		
-		//Validate if submitt button is enable and click
+		//Validate if submit button is enable and click
 		 if (isEnable(submitButton))
 		 {
 			 System.out.println("Submit button was enable");
@@ -740,9 +757,41 @@ public class AccountPage extends Base {
 		//Click on Add credit card
 		click(addNewCardDropdown);
 		Thread.sleep(500);
+		click(nameCreditCarOut);
+		type(nameCreditCard, nameCreditCardIn);
+		
+		click(creditCardNumberOut);
+		type(cardNumber, creditCardNumberIn);
+		
+		click(expiryMonthDropDown);
+		click(monthOption12DropDown);
+		Thread.sleep(500);
+		
+		click(expiryYearDropDown);
+		click(expiryYearOptionDropDown);
 		
 		
+		//Validate Submit button is enable  and click
+		if (isEnable(submitPaymentInfoButton))
+		{
+			click(submitPaymentInfoButton);
+		}
+		else
+		{
+			System.out.println("Submit payment button was not present");
+			driver.close();
+		}
 		
+		
+	}
+	
+	public String confirmCreditCard ()
+	{
+		WebElement myCreditCardNameTag = findElement(myCreditCardTag);
+		String content = getText(myCreditCardTag);
+		
+		System.out.println("My adress is: " + content);
+		return getText(myCreditCardNameTag);
 	}
 	
 	
