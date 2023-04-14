@@ -71,7 +71,7 @@ public class AccoutPage_TEST {
 	}
 	*/
 	
-	
+	/*
 	@Test
 	public void Test5_Account_NewPayment() throws InterruptedException
 	{
@@ -81,6 +81,18 @@ public class AccoutPage_TEST {
 		//Validate if credit card added is the correct one
 		accountPageTest.confirmCreditCard();
 		assertEquals("Test", accountPageTest.confirmCreditCard());
+	}
+	*/
+	
+	@Test
+	public void Test6_Account_DigitalWallet() throws InterruptedException
+	{
+		//Calling the method to add digital wallet
+		accountPageTest.addingDigitalWallet();
+		
+		//Calling the method to validate if amount was displayed
+		accountPageTest.validatePaymentOptionTag02();
+		assertEquals("My Payment Options", accountPageTest.validatePaymentOptionTag02());
 	}
 	
 	/*@After

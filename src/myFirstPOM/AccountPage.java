@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v108.browser.Browser;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -82,8 +83,14 @@ public class AccountPage extends Base {
 	By expiryYearDropDown = By.xpath("//*[@id=\"mat-input-6\"]");
 	By expiryYearOptionDropDown = By.xpath("//*[@id=\"mat-input-6\"]/option[9]");
 	By submitPaymentInfoButton = By.xpath("//*[@id=\"submitButton\"]");
-	
 	By myCreditCardTag = By.xpath("//*[@class=\"mat-cell cdk-cell cdk-column-Name mat-column-Name ng-star-inserted\"]");
+	
+	//Digital Wallet
+	By digitalWalletbutton = By.xpath("//*[@id=\"mat-menu-panel-3\"]/div/button[5]");
+	By amountTextBoxOut = By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-wallet/mat-card/mat-form-field/div/div[1]/div[3]");
+	By amountTextBoxIn = By.xpath("//*[@id=\"mat-input-3\"]");
+	By continueWalltButton = By.xpath("//*[@id=\"submitButton\"]");
+	By myPaymentOptionTwo = By.xpath("//*[@class=\"ng-star-inserted\"]/mat-card/div/app-payment-method/div/h1");
 	
 	
 	//Data
@@ -98,6 +105,7 @@ public class AccountPage extends Base {
 	String state = "California";
 	String nameCreditCard = "Test";
 	String cardNumber = "4111111111111111";
+	String newAmount = "100";
 	
 	
 	
@@ -792,6 +800,146 @@ public class AccountPage extends Base {
 		
 		System.out.println("My adress is: " + content);
 		return getText(myCreditCardNameTag);
+	}
+	
+	//---------SIX SCENARIO ADDING DIGITAL WALLET INFO
+	public void addingDigitalWallet () throws InterruptedException
+	{
+		
+//Verify welcome window is displayed
+		if (isDisplayed(welcomeWindowLocator)) 
+		{
+			System.out.println("Welcome message window is present");
+		}
+		else 
+		{
+			System.out.println("Element is NOT present");
+		}
+				
+		//Verify Dismiss  button is displayed and click
+		if (isDisplayed(dismissButtonLocator)) 
+		{
+			System.out.println("Button is present");
+			click(dismissButtonLocator);	
+		}
+		else 
+		{
+			System.out.println("Button is NOT present");
+		}
+		
+		//Verify Cookie Banner is displayed and click
+		if (isDisplayed(coockieBannerLocator)) 
+		{
+			System.out.println("Cookie banner is present");
+		}
+		else 
+		{
+			System.out.println("Cookie banner is NOT present");
+		}
+				
+		//Verify Me Want it button is displayed and click
+		if (isDisplayed(weWantItButtonLocator)) 
+		{
+			System.out.println("Accept button is present");
+			click(weWantItButtonLocator);
+		}
+		else 
+		{
+			System.out.println("Accept button NOT present");
+		}
+		
+		//Find Account button and click
+		findElement(accountButtonLocator);
+		click(accountButtonLocator);
+				
+		
+		//Validate if Login button is displayed
+		if (isDisplayed(loginButtonLocator)) 
+		{
+			click(loginButtonLocator);
+		}
+		else 
+		{
+			System.out.println("Login button not displayed");
+		}
+		
+		
+		//Verify Login box container is displayed enter credentials and validate warning message
+		if (isDisplayed(loginContainerLocator)) 
+		{
+			System.out.println("Login container was displayed");
+						
+			//Validate VALID Email text box is displayed send email
+			if(isDisplayed(emailTextFieldLocator)) 
+			{
+					type(email, emailTextFieldLocator);
+			}
+			else 
+			{
+				System.out.println("Email field not present");
+			}
+							
+			//Validate Password field is present
+			if (isDisplayed(passwordTextFieldLocator)) 
+			{
+				type(password, passwordTextFieldLocator);
+			}
+			else 
+			{
+				System.out.println("Password field not present");
+			}
+							
+			//Validate Login button is enable and click
+			if (isEnable(loginMasterLocator)) 
+			{
+				click(loginMasterLocator);
+			}
+			else 
+			{
+				System.out.println("Login button is not enable");
+			}
+		}
+		Thread.sleep(1000);
+		
+		
+		//Find ACCOUNT button
+		findElement(accountButtonLocator);
+		click(accountButtonLocator);
+		
+		//Mouse hover 
+		MoveToElement(ordersAndpaymentButton);
+		Thread.sleep(500);
+		
+		//Click on Digital Wallet button
+		click(digitalWalletbutton);
+		
+		//Enter new amount
+		click(amountTextBoxOut);
+		Thread.sleep(200);
+		type(newAmount, amountTextBoxIn);
+		
+		if (isEnable(continueWalltButton))
+		{
+			System.out.println("The continue button was enable");
+			click(continueWalltButton);
+		}
+		else
+		{
+			System.out.println("The button was not enable");
+			driver.close();
+		}
+		
+	}
+	
+	public String validatePaymentOptionTag02 ()
+	{
+		
+		WebElement paymentOptionTwoTag = findElement(myPaymentOptionTwo);
+		String content = getText(myPaymentOptionTwo);
+		
+		System.out.println("The section loaded is: " + content);
+		return getText(paymentOptionTwoTag);
+		
 	}
 	
 	
