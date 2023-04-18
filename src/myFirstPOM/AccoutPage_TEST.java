@@ -21,7 +21,7 @@ public class AccoutPage_TEST {
 	}
 	
 
-	/*
+	
 	@Test
 	public void Test1_Account_UserProfile() throws InterruptedException 
 	{
@@ -69,9 +69,9 @@ public class AccoutPage_TEST {
 		assertEquals("California, Hills, California, 90210", accountPageTest.myAddressConfirmation());
 		
 	}
-	*/
 	
-	/*
+	
+	
 	@Test
 	public void Test5_Account_NewPayment() throws InterruptedException
 	{
@@ -82,7 +82,7 @@ public class AccoutPage_TEST {
 		accountPageTest.confirmCreditCard();
 		assertEquals("Test", accountPageTest.confirmCreditCard());
 	}
-	*/
+	
 	
 	@Test
 	public void Test6_Account_DigitalWallet() throws InterruptedException
@@ -95,12 +95,12 @@ public class AccoutPage_TEST {
 		assertEquals("My Payment Options", accountPageTest.validatePaymentOptionTag02());
 	}
 	
-	/*@After
+	@After
 	public void tearDown() throws Exception 
 	{
 		driver.close();
 	}
-	*/
+	
 
 
 }
